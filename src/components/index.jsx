@@ -11,6 +11,7 @@ export { default as SearchFeed } from "./SearchFeed";
 
 export {default as SearchBar} from "./SearchBar"
 
+export {default as Sidebar} from "./Sidebar"
 // import Navbar from './components/Navbar'
 // import {Feed} from '@mui/icons-material';
 // import VideoDetail from './components/VideoDetail'

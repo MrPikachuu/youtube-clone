@@ -8,7 +8,7 @@ import { logo } from "./utils/constants";
 const App = () => (
   <div>
     <BrowserRouter>
-      <Box sx={{ backgroundColor: "#000" }}>
+      <Box sx={{ backgroundColor: "#000"}}>
         {/* 创建了一个使用 MUI 的 Box 组件，并将其背景颜色设置为黑色。
         在这个代码片段中，<Box> 标签通过 sx 属性传递了一个 JavaScript
          对象，对象中包含了一个 backgroundColor 属性，值为 #000，表示黑色。

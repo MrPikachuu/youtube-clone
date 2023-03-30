@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SearchBar from './SearchBar';
 import { logo } from "../utils/constants";
 
-
+// 就是顶上带youtube标签和搜索框的bar
 const Navbar = () => (
   <Stack
     direction="row"
