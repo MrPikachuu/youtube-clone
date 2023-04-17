@@ -1,45 +1,36 @@
-import React from 'react'
-import { Stack } from '@mui/material'
-import {categories} from '../utils/constants'
+import React from "react";
+import { Stack } from "@mui/material";
 
-const selectedCategory = 'New'
+import { categories } from "../utils/constants";
 
-export const Sidebar = () => (
+const Categories = ({ selectedCategory, setSelectedCategory }) => (
+  <Stack
+    direction="row"
+    sx={{
+      overflowY: "auto",
+      height: { sx: "auto", md: "95%" },
+      flexDirection: { md: "column" },
+    }}
+  >
+    {categories.map((category) => (
+      <button
+        className="category-btn"
+        onClick={() => setSelectedCategory(category.name)}
+        style={{
+          background: category.name === selectedCategory && "#FC1503",
+          color: "white",
+        }}
+        key={category.name}
+      >
+        <span style={{ color: category.name === selectedCategory ? "white" : "red", marginRight: "15px" }}>
+          {category.icon}
+        </span>
+        <span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>
+          {category.name}
+        </span>
+      </button>
+    ))}
+  </Stack>
+);
 
-    <Stack
-        direction = "row"
-        sx = {{
-            overflowY:"auto",
-            height:{sx:"auto", md: "95%"},
-            flexDirection:{md:"column"},
-        }}>
-            
-            {categories.map((category) => (
-                <button 
-                className = "category-btn"
-                style={{
-                    background: category.name === selectedCategory && '#FC1503',
-                color : 'white'}}
-                // 这个color如果不注明 就是黑色的 和背景混为一体
-                key = {category.name}
-                >
-                    <span style = {{color: category.name === selectedCategory? 'white': 'red'
-                , marginRight:'15px'}}>{category.icon}</span>
-                    <span style={{opacity: category.name === selectedCategory? '1':'0.7'}} >{category.name}</span>
-                    
-                </button>
-
-
-
-
-
-                // 用map来把每一个icon和name都渲染一下呗 
-                // 这两个span组成一个元素 然后渲染全部的元素
-            ))}
-
-    </Stack>
-
-)
-
-
-export default Sidebar
+export default Categories;

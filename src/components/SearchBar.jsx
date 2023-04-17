@@ -1,11 +1,21 @@
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Paper, IconButton } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { Paper, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const onhandleSubmit = (e) => {
+    e.preventDefault();
+
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+
+      setSearchTerm('');
+    }
+  };
   return (
     <Paper
       // 创建一个带有背景颜色和阴影效果的纸片元素
@@ -30,12 +40,8 @@ const SearchBar = () => {
 
       <IconButton
         type="submit"    //type = "submit"：这个属性指定了按钮的类型为“提交”，这意味着当用户单击按钮时，会将表单数据提交给服务器。在这个例子中，当用户单击搜索按钮时，会执行搜索操作，并将搜索查询提交给服务器。
-        sx={{
-          p: "18px",
-          color: "red",
-        }}
-      >
-        <Search />
+        sx={{ p: '10px', color: 'red' }} aria-label='search'>
+        <SearchIcon />
       </IconButton>
     </Paper>
   );
